@@ -108,11 +108,11 @@ def run():
          print("FAISS indices not found, building embeddings...")
          print("\nBuilding embeddings...\n")
     
-    embeddings_build = subprocess.run(
-           [PYTHON_EXE, "build_embeddings.py"],
-            check=True,
-            shell=IS_WINDOWS
-        )
+         embeddings_build = subprocess.run(
+               [PYTHON_EXE, "build_embeddings.py"],
+                check=True,
+                shell=IS_WINDOWS
+            )
 
     print("Starting backend server...")
     print("=" * 50 + "\n")
