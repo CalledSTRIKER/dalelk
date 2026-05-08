@@ -36,7 +36,7 @@ def ban_ip(ip, duration_minutes=60):
     banned_ips[ip] = datetime.now().timestamp() + (duration_minutes * 60)
 
 def check_ban(request: Request):
-    ip = get_remote_address(request)
+    ip = request.headers.get("X-Real-IP")  or get_remote_address(request)
     now = datetime.now().timestamp()
     banned_until = banned_ips.get(ip)
 
@@ -52,7 +52,7 @@ def check_ban(request: Request):
 @app.exception_handler(RateLimitExceeded)
 async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
     print("in exception handler")
-    ip = get_remote_address(request)
+    ip = request.headers.get("X-Real-IP") or get_remote_address(request)
     now = datetime.now()
     violations[ip] = [v for v in violations[ip] if (now - v).total_seconds() <= 86400]
     violations[ip].append(now)
