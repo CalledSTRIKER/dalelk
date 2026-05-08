@@ -80,7 +80,7 @@ for i, fact in enumerate(cert_facts_list):
         f"الجهة المانحة: {fact['Awarding Body']} | "
         f"التخصص: {fact['Major']} | "
         f"المواضيع: {fact['Topic']} | "
-        f"المقررات المرتبطة: \n{courses_for_cert[i]}"
+        f"المقررات المرتبطة (يفضل أخذها): \n{courses_for_cert[i]}"
     )
     cert_texts.append(text)
 

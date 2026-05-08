@@ -14,9 +14,11 @@ VENV_DIR     = os.path.join(REPO_DIR, "venv")
 
 if IS_WINDOWS:
     PYTHON_EXE = os.path.join(VENV_DIR, "Scripts", "python.exe")
+    PIP_EXE = os.path.join(VENV_DIR, "Scripts", "pip.exe")
     VENV_BIN   = os.path.join(VENV_DIR, "Scripts")
 else:
     PYTHON_EXE = os.path.join(VENV_DIR, "bin", "python")
+    PIP_EXE = os.path.join(VENV_DIR, "bin", "pip")
     VENV_BIN   = os.path.join(VENV_DIR, "bin")
 
 
@@ -30,8 +32,14 @@ def stream_output(process, prefix):
 
 def run():
     if not os.path.exists(PYTHON_EXE):
-        print(f"Virtual environment not found at: {PYTHON_EXE}")
-        print("Please run the install script first.")
+        print(f"Virtual environment not found at: {PYTHON_EXE}, Creating venv...")
+        subprocess.run(
+            ["python", "-m", "venv", "venv"],
+            check=True,
+            shell=IS_WINDOWS
+        )
+        
+        run()
         return
 
     env = os.environ.copy()
@@ -39,6 +47,19 @@ def run():
     env["PYTHONIOENCODING"] = "utf-8"
 
     print("==== AI Academic Assistant ====\n")
+    
+    print("Installing backend dependencies...")
+    try:
+        subprocess.run(
+            [PIP_EXE, "install", "-r", "requirements.txt"],
+            check=True,
+            shell=IS_WINDOWS
+        )
+    except Exception as e:
+        print(f"Backend dependency installation failed: {e}")
+        return
+
+
     print("Installing frontend dependencies...")
 
     try:
@@ -79,16 +100,29 @@ def run():
     except Exception as e:
         print(f"Frontend failed: {e}")
         return
+        
 
     print("\n" + "=" * 50)
+
+    if not os.path.exists(f"{REPO_DIR}/indicies/qa_idmap.index"):
+         print("FAISS indices not found, building embeddings...")
+
+    print("\nBuilding embeddings...\n")
+    
+    embeddings_build = subprocess.run(
+           [PYTHON_EXE, "build_embeddings.py"],
+            check=True,
+            shell=IS_WINDOWS
+        )
+
     print("Starting backend server...")
     print("=" * 50 + "\n")
 
     try:
         if os.getenv("DEBUG_AI") == "off":
-            args = [PYTHON_EXE, "-m", "gunicorn", "main:app", "-w", "1", "-k", "uvicorn.workers.UvicornWorker", "--host", "127.0.0.1", "--port", "80"]
+            args = [PYTHON_EXE, "-m", "uvicorn", "main:app", "--host", "127.0.0.1", "--port", "80"]
         else:
-            args = [PYTHON_EXE, "-m", "gunicorn", "--reload", "main:app", "-w", "1", "-k", "uvicorn.workers.UvicornWorker", "--host", "127.0.0.1", "--port", "80"]
+            args = [PYTHON_EXE, "-m", "uvicorn", "--reload", "main:app", "--host", "127.0.0.1", "--port", "80"]
 
 
         backend_process = subprocess.Popen(
