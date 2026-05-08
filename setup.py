@@ -106,8 +106,7 @@ def run():
 
     if not os.path.exists(f"{REPO_DIR}/indicies/qa_idmap.index"):
          print("FAISS indices not found, building embeddings...")
-
-    print("\nBuilding embeddings...\n")
+         print("\nBuilding embeddings...\n")
     
     embeddings_build = subprocess.run(
            [PYTHON_EXE, "build_embeddings.py"],
