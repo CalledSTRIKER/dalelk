@@ -40,7 +40,7 @@ def test_rate_limit_429():
     r = client.post("/api/query", json=PAYLOAD)
     assert r.status_code == 429
     assert "Too many requests" in r.text
-    print("\n 429 Too Many Requests triggered correctly after 20 requests")
+    print("\n 429 Too Many Requests triggered correctly after 4 requests")
 
 
 # ban test  violation 3 times then 403 banned
