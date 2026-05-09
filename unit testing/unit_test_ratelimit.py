@@ -29,13 +29,13 @@ def send_requests(count):
     return results
 
 
-# (429 test) send 20 كلها تنجح, then 21 fails
+# (429 test) send 4 كلها تنجح, then 5 fails
 def test_rate_limit_429():
-    # First 20 should be 200
-    results = send_requests(20)
+    # First 4 should be 200
+    results = send_requests(4)
     assert all(s == 200 for s in results), f"Expected all 200, got: {results}"
 
-    # 21st should be 429
+    # 5th should be 429
     client.cookies.update(COOKIES)
     r = client.post("/api/query", json=PAYLOAD)
     assert r.status_code == 429
@@ -48,15 +48,12 @@ def test_rate_limit_ban():
 
     def trigger_violation():
         
-        send_requests(20)
-        # Send 20 
-       
-        send_requests(2)
-        # Send 2 more to pass the limit
+        send_requests(4)
+
 
     trigger_violation()  # violation count = 1 429
     trigger_violation()  # violation count = 2 429
-    trigger_violation()  # violation count = 3 403 BANNED
+
 
     # next request should be 403 banned
     client.cookies.update(COOKIES)
