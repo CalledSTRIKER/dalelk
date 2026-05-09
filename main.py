@@ -61,11 +61,11 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
     violations[ip].append(now)
     count = len(violations[ip])
 
-    if count == 3:
+    if count == 4:
         ban_ip(ip)
         return JSONResponse(status_code=403, content={"detail":"You've been banned for 1 hour for repeated rate limits excessions."})
 
-    elif count > 3:
+    elif count > 6:
         ban_ip(ip, 21600)
         return JSONResponse(status_code=403, content={"detail":"You've been banned for much longer time for repeated rate limits excessions."})
 
