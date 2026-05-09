@@ -221,7 +221,7 @@ export default function WelcomeScreen({ onSubmit }: WelcomeScreenProps) {
             <h2 className="text-lg font-bold mb-2">عن المشروع</h2>
             <p className="text-white/80 text-sm leading-relaxed">
               دليلك هو مساعد أكاديمي ذكي يعتمد على تقنيات الذكاء الاصطناعي
-              لمساعدة طلاب قسم علوم الحاسب والذكاء الاصطناعي في جامعة جدة.
+              لمساعدة طلاب علوم الحاسب والذكاء الاصطناعي في جامعة جدة.
             </p>
           </div>
 
