@@ -6,7 +6,6 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from pydantic import BaseModel, Field
 from collections import defaultdict
-import llm_inference
 import sqlite3
 import re
 import time
@@ -118,7 +117,7 @@ def get_db():
 
 # The AI Function
 def process_query(question: str, major: str, batch: str, student_id: str):
-    return {"answer": llm_inference.generate_answer(question, major, batch, student_id)}
+    return {"answer": "This is a mock answer for demonstration purposes."}
 
 # Question endpoint
 
