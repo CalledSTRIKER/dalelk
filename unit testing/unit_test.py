@@ -1,7 +1,31 @@
+import pytest
 from fastapi.testclient import TestClient
-from main import app
+from main import app, banned_ips, violations
 
 client = TestClient(app)
+
+# reset the rate limit
+@pytest.fixture(autouse=True)
+def reset_rate_limit():
+    banned_ips.clear()
+    violations.clear()
+    app.state.limiter._storage.reset()
+    yield
+    banned_ips.clear()
+    violations.clear()
+from main import app, banned_ips, violations
+
+client = TestClient(app)
+
+# reset the rate limit
+@pytest.fixture(autouse=True)
+def reset_rate_limit():
+    banned_ips.clear()
+    violations.clear()
+    app.state.limiter._storage.reset()
+    yield
+    banned_ips.clear()
+    violations.clear()
 
 #======/api/query TEST======
 def test_query_success():
