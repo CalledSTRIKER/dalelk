@@ -48,7 +48,7 @@ def check_ban(request: Request):
         return
 
     if now < banned_until:
-        raise HTTPException(status_code=403, detail="You've been banned temporary for repeated rate limits excessions.")
+        raise HTTPException(status_code=403, detail="تم حظرك مؤقتًا بسبب تجاوزك المتكرر لحدود معدل الاستخدام.")
 
     else:
         del banned_ips[ip]
