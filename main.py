@@ -63,13 +63,13 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
 
     if count == 4:
         ban_ip(ip)
-        return JSONResponse(status_code=403, content={"detail":"You've been banned for 1 hour for repeated rate limits excessions."})
+        return JSONResponse(status_code=403, content={"detail":"تم حظرك لمدة ساعة واحدة بسبب تجاوزك المتكرر لحدود معدل الاستخدام."})
 
-    elif count > 6:
+    elif count > 10:
         ban_ip(ip, 21600)
-        return JSONResponse(status_code=403, content={"detail":"You've been banned for much longer time for repeated rate limits excessions."})
+        return JSONResponse(status_code=403, content={"detail":"لقد تم حظرك لفترة أطول بكثير بسبب تجاوزك المتكرر لحدود معدل الاستخدام."})
 
-    return JSONResponse(status_code=429, content={"detail":"Too many requests."})
+    return JSONResponse(status_code=429, content={"detail":"الرجاء الإنتظار لبضع دقائق قبل إرسال المزيد من الأسئلة، علمًا أن إرسال العديد من الاسئلة في وقت قصير قد يؤدي إلى حظرك مؤقتًا من دخول الموقع."})
 
 
 
