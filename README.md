@@ -1,2 +1,2 @@
-# Dalelk: The Official AI Academic Assistant for the College of Computer Science and Engineering 
+# Dalelk: The Official AI Academic Assistant for the College of Computer Science and Engineering for Jeddah University
 
