@@ -34,18 +34,13 @@ models = [
     "gemini-3-flash-preview"
 ]
 
-# you may add if you have more, just add them to .env
-    #os.getenv("API_KEY2"),  # Backup 1
-    #os.getenv("API_KEY3"),  # Backup 2
-    #os.getenv("API_KEY4"),  # Backup 3
-
 user_history = {}
 
 current_model = models[0]
+model_id = 0
 current_key_index = 0
 google_api_key = api_keys[current_key_index]
 client = genai.Client(api_key=google_api_key)
-model_id = 0
 
 def switch_to_next_model():
     global model_id, current_model
@@ -205,8 +200,19 @@ def generate_answer(query: str, major: str, batch: str, student_id: str) -> str:
 
             if retry == 4:
                 logger.error(f"Non-rate-limit error on {type(e).__name__}: {e}")
-                break
+                if models_tried < len(models) - 1:
+                    logger.info("Switching to next model...")
+                    if switch_to_next_model() == False:
+                        break
 
+                    retry = 0
+                    models_tried += 1
+                    continue
+
+                else:
+                    break
+
+            
             sleep(2 ** retry)
             continue
 
