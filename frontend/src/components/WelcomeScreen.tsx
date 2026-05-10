@@ -185,7 +185,7 @@ export default function WelcomeScreen({ onSubmit }: WelcomeScreenProps) {
               </SelectTrigger>
               <SelectContent className="bg-white/95 backdrop-blur-md">
                 {Object.entries(MAJOR_MAP).map(([code, label]) => {
-                  const isAvailable = ["cs", "ai"].includes(code);
+                  const isAvailable = ["cs", "ai", "ds", "cy", "sw", "ce"].includes(code);
                   return (
                     <SelectItem
                       key={code}
