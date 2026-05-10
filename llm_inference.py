@@ -27,6 +27,13 @@ api_keys = [
     os.getenv("API_KEY4"),  # Backup 3
 ]
 
+models = [
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-3.1-flash-lite",
+    "gemini-3-flash-preview"
+]
+
 # you may add if you have more, just add them to .env
     #os.getenv("API_KEY2"),  # Backup 1
     #os.getenv("API_KEY3"),  # Backup 2
@@ -34,15 +41,42 @@ api_keys = [
 
 user_history = {}
 
+current_model = models[0]
 current_key_index = 0
 google_api_key = api_keys[current_key_index]
 client = genai.Client(api_key=google_api_key)
+model_id = 0
+
+def switch_to_next_model():
+    global model_id, current_model
+
+    if not any(models):
+        logger.error("You don't have any models.")
+        return False
+
+    for i in range(1, len(models)):
+        current_model_check = models[(model_id + i) % len(models)]
+        if current_model_check:
+            model_id = (model_id + i) % len(models)
+            break
+
+    else:
+        logger.error("No alternative model to switch to.")
+        return False
+
+    current_model = current_model_check
+
+    logger.info(f"Switched to model {model_id}/{len(models)}")
+
+    return True
+
 
 def switch_to_next_key():
     global current_key_index, google_api_key, client
 
     if not any(api_keys):
-        raise Exception("You don't have any valid API key.")
+        logger.error("You don't have any valid API key.")
+        return False
 
     for i in range(1, len(api_keys)):
         google_api_key = api_keys[(current_key_index + i) % len(api_keys)]
@@ -50,7 +84,9 @@ def switch_to_next_key():
             current_key_index = (current_key_index + i) % len(api_keys)
             break
     else:
-        raise Exception("No alternative valid API key to switch to.")
+         logger.error("No alternative valid API key to switch to.")
+         return False
+
 
     client = genai.Client(api_key=google_api_key)
     logger.info(f"Switched to API key {current_key_index}/{len(api_keys)}")
@@ -60,7 +96,7 @@ def is_rate_limit_error(error) -> bool:
     error_msg = str(error).lower()
     rate_limit_indicators = [
         "quota", "rate limit", "resource exhausted",
-        "exceeded", "429", "billing", "overloaded",
+        "exceeded", "429", "billing", "overloaded"
     ]
     return any(indicator in error_msg for indicator in rate_limit_indicators)
 
@@ -137,6 +173,7 @@ def generate_answer(query: str, major: str, batch: str, student_id: str) -> str:
 """
 
     keys_tried = 0
+    models_tried = 0
     retry = 0
 
     if os.getenv("DEBUG_AI") == "on":
@@ -147,7 +184,7 @@ def generate_answer(query: str, major: str, batch: str, student_id: str) -> str:
     while keys_tried < len(api_keys):
         try:
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model=current_model,
                 config=types.GenerateContentConfig(system_instruction=system_prompt),
                 contents=user_prompt,
             )
@@ -179,8 +216,20 @@ def generate_answer(query: str, major: str, batch: str, student_id: str) -> str:
                 keys_tried += 1
                 if keys_tried < len(api_keys):
                     logger.info("Switching to next API key...")
-                    switch_to_next_key()
+                    if switch_to_next_key() == False:
+                        break
+                    retry = 0
                     continue
+
+                elif models_tried < len(models) - 1:
+                    keys_tried = 0
+                    logger.info("Switching to next model...")
+                    if switch_to_next_model() == False:
+                        break
+                    retry = 0
+                    models_tried += 1
+                    continue
+
             else:
                 logger.error(f"Non-rate-limit error on key {current_key_index + 1}: {type(e).__name__}: {e}")
             break
