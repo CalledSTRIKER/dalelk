@@ -2,19 +2,19 @@
 
 ```
  .
-    ├── classifier_training
-    │   ├── certifications
-    │   ├── courses
-    │   ├── general
-    │   ├── classifier_dataset.xlsx
-    │   ├── create_dataset.py
-    │   └── Evaluation_100.xlsx
+    ├── classifier_training - the brain understands what the user is asking about.
+    │   ├── certifications - Questions about certifications
+    │   ├── courses - Questions about courses
+    │   ├── general - General dataset folder
+    │   ├── classifier_dataset.xlsx - used to train the intent classifier
+    │   ├── create_dataset.py - A script that automatically generates dataset questions
+    │   └── Evaluation_100.xlsx - Dataset for training/evaluation
     ├── datasets
-    │   ├── Certifications.xlsx
-    │   ├── Courses_new.xlsx
-    │   ├── QA.xlsx
-    │   └── Students Survey.xlsx
-    ├── frontend            # Frontend website implementation with responsive UI and API integration
+    │   ├── Certifications.xlsx - Dataset about professional certifications
+    │   ├── Courses_new.xlsx - Dataset for the new course plan 
+    │   ├── QA.xlsx - General academic Q&A dataset 
+    │   └── Students Survey.xlsx - Dataset built from students questions 
+    ├── frontend 
     │   ├── node_modules
     │   ├── public
     │   ├── src
@@ -45,4 +45,5 @@
     ├── requirements.txt
     ├── retrieve.py
     └── setup.py
+
 
