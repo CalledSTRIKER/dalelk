@@ -1,8 +1,8 @@
 # Dalelk: The Official AI Academic Assistant for the College of Computer Science and Engineering for Jeddah University
 
 ```
- .
-    .
+ 
+.   
 ├── classifier_training/               # The brain that understands what the user is asking about
 │   ├── certifications/                # Questions certifications folder
 │   ├── courses/                       # Questions courses folder
