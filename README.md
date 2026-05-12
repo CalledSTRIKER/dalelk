@@ -75,7 +75,8 @@
 9. Paste it in the project where the Hugging Face API key is required
 
 ### 3. Download Embeddings
-1. Download the embedding files from the following links: - [Embedding Gemma 300M](https://huggingface.co/google/embeddinggemma-300m)
+1. Download the embedding files from the following links: 
+- [Embedding Gemma 300M](https://huggingface.co/google/embeddinggemma-300m)
 2. Place the downloaded files in the project directory
 
 ### 4. Download the Classifier Model
@@ -86,5 +87,5 @@
 ### 5. Extract the Model
 1. Extract the downloaded file
 2. Make sure the extracted content follows this exact path:
->  !!! **Windows users:** !!! When extracting, make sure the final path looks like this and does not have an extra nested folder:
+>  !!! **Windows users:** !!! When extracting, make sure the final path looks like this and does not have an extra folder:
 > `models/fine_tuned_marbert/(model files directly here)`
