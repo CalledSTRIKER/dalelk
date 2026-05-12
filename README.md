@@ -2,20 +2,20 @@
 
 ```
 .
-├── classifier_training
-│   ├── certifications
-│   └── courses
-├── datasets
-│   ├── general
-│   ├── classifier_dataset.xlsx
-│   ├── create_dataset.py
-│   ├── Evaluation_100.xlsx
-│   ├── Certifications.xlsx
-│   ├── Courses_new.xlsx
-│   ├── QA.xlsx
-│   └── Students Survey.xlsx
+├── classifier_training - This folder is responsible for training the intent classifier - the brain of Daleelak that understands what the user is asking about.
+│   ├── certifications - Questions about certifications & datasets about certifications
+│   └── courses - Questions about courses & datasets about courses
+├── datasets 
+│   ├── general - General dataset folder
+│   ├── classifier_dataset.xlsx - The questions used to train the intent classifier
+│   ├── create_dataset.py - A script that automatically generates dataset questions
+│   ├── Evaluation_100.xlsx - Dataset for training/evaluation containing query, topic, size, and language
+│   ├── Certifications.xlsx - Dataset about professional certifications
+│   ├── Courses_new.xlsx - Dataset for the new course plan for the College of Computer Science and Engineering
+│   ├── QA.xlsx - General academic Q&A dataset — includes COOP summer training questions, student clubs, and more
+│   └── Students Survey.xlsx - Dataset built from real questions that students asked in the student survey — collected, answered, and structured into a dataset
 ├── frontend
-│   ├── node_modules
+│   ├── node_modules 
 │   ├── public
 │   ├── src
 │   ├── index.html
