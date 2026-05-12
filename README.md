@@ -37,8 +37,8 @@
 │   ├── unit_test.py
 │   └── unit_test_ratelimit.py
 │
-├── build_embeddings.py                
-├── data_loader.py                     # loading and preparing all the datasets into the program
+├── build_embeddings.py                # bulid embeddings for dataset
+├── data_loader.py                     
 ├── llm_inference.py                   # communicating with the LLM to generate the final answer for the user.
 ├── load_embeddings.py                 # loading the pre-built embeddings
 ├── logger.py                          # Loading everything that happens in the program
