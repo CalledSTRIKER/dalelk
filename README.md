@@ -43,7 +43,7 @@
 ├── load_embeddings.py                 # loading the pre-built embeddings
 ├── logger.py                          # Loading everything that happens in the program
 ├── main.py                            # the entry point of Dalelk where everything starts and comes together.
-├── NOTICE.txt                         
+├── NOTICE.txt                         # google policy
 ├── query_classifer.py                 # The query classifier that analyze the user's intent
 ├── query_classifier_training.ipynb    # Jupyter Notebook where the MARBert model was trained and fine-tuned.
 ├── requirements.txt                   # lists all the Python libraries that Dalelk needs to run.
