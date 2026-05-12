@@ -50,6 +50,7 @@
 ├── requirements.txt                   # lists all the Python libraries that Dalelk needs to run.
 ├── retrieve.py                        # finding the most relevant information to answer the user's question.
 └── setup.py                           # packaging and setting up Dalelk as a Python project.
+```
 
 ##  Getting Started
 
