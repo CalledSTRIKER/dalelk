@@ -32,7 +32,7 @@
     ├── unit testing
     │   ├── main.py
     │   ├── unit_test.py
-    │   └── unit_test_ratelimit.py
+    │   └── unit_test_ratelimit.py   # Rate limiting & IP banning tests (429/403)
     ├── build_embeddings.py
     ├── data_loader.py
     ├── llm_inference.py
