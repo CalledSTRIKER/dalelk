@@ -73,7 +73,7 @@
 7. Give it a name and set access to **"Read"**
 8. Click **"Create Token"**
 9. Copy the generated token
-10. Paste it in the project in the .env file in the hf_token field
+10. Paste it in the project in the .env file in the hf_token field.
 
 
 ### 3. Download the Classifier Model
