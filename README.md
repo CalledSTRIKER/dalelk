@@ -27,8 +27,8 @@
     │   ├── tsconfig.json
     │   ├── tsconfig.node.json
     │   └── vite.config.ts
-    ├── models
-    │   └── fine_tuned_marbert
+    ├── models - trained AI models used by Daleelak.
+    │   └── fine_tuned_marbert - fine-tuned, trained on Daleelak's datasets
     ├── unit testing
     │   ├── main.py
     │   ├── unit_test.py
