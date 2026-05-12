@@ -3,9 +3,9 @@
 ```
  .
     ├── classifier_training - the brain understands what the user is asking about.
-    │   ├── certifications - Questions about certifications
-    │   ├── courses - Courses Dataset folder
-    │   ├── general - General Dataset folder
+    │   ├── certifications - Questions certifications folder
+    │   ├── courses - Questions courses folder
+    │   ├── general - Questions general folder
     │   ├── classifier_dataset.xlsx - used to train the intent classifier
     │   ├── create_dataset.py - A script that automatically generates dataset questions
     │   └── Evaluation_100.xlsx - Dataset for training/evaluation
