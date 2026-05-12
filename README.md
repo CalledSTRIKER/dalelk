@@ -14,7 +14,7 @@
     │   ├── Courses_new.xlsx - Dataset for the new course plan 
     │   ├── QA.xlsx - General academic Q&A dataset 
     │   └── Students Survey.xlsx - Dataset built from students questions 
-    ├── frontend 
+    ├── frontend   - Frontend website implementation with responsive UI and API integration 
     │   ├── node_modules
     │   ├── public
     │   ├── src
