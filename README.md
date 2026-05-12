@@ -31,7 +31,7 @@
 │   └── vite.config.ts
 │
 ├── models/                            # Trained AI models used by Daleelak
-│   └── fine_tuned_marbert/            # Fine-tuned, trained on Daleelak's datasets
+│   └── fine_tuned_marbert/            # Fine-tuned, trained on Dalelk's datasets
 │
 ├── unit testing/                      # Backend API endpoint tests and rate limiting validation
 │   ├── main.py
