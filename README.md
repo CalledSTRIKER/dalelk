@@ -14,7 +14,7 @@
     │   ├── Courses_new.xlsx
     │   ├── QA.xlsx
     │   └── Students Survey.xlsx
-    ├── frontend
+    ├── frontend            # Frontend website implementation with responsive UI and API integration
     │   ├── node_modules
     │   ├── public
     │   ├── src
