@@ -66,21 +66,22 @@
 ### 2. Get Your Hugging Face API Key
 1. Go to [Hugging Face](https://huggingface.co/)
 2. Sign in with your account
-3. Click on your profile picture → **"Settings"**
-4. Go to **"Access Tokens"**
-5. Click **"New Token"**
-6. Give it a name and set access to **"Read"**
-7. Click **"Create Token"**
-8. Copy the generated token
-9. Paste it in the project where the Hugging Face API key is required
+3. Go to [Embedding Gemma](https://huggingface.co/google/embeddinggemma-300m) and accept the usage policy
+4. Click on your profile picture → **"Settings"**
+5. Go to **"Access Tokens"**
+6. Click **"New Token"**
+7. Give it a name and set access to **"Read"**
+8. Click **"Create Token"**
+9. Copy the generated token
+10. Paste it in the project where the Hugging Face API key is required
 
 
-### 4. Download the Classifier Model
+### 3. Download the Classifier Model
 1. Go to the **Releases** page of this repository
 2. Download the classifier model file
 3. Place it inside the `models/` folder
 
-### 5. Extract the Model
+### 4. Extract the Model
 1. Extract the downloaded file
 2. Make sure the extracted content follows this exact path:
 >  !!! **Windows users:** !!! When extracting, make sure the final path looks like this and does not have an extra folder:
