@@ -53,14 +53,14 @@
 
 ##  Getting Started
 
-### 1. Get Your API Key
+### 1. Get Your Google API Key
 1. Go to [Google AI Studio](https://aistudio.google.com/)
 2. Sign in with your Google account
 3. Click **"Get API Key"**
 4. Click **"Create API Key"**
 5. Choose your project
 6. Copy the generated API key
-7. Paste it in the project where the API key is required
+7. Paste it in the project in the .env file in API_KEY1
 
 
 ### 2. Get Your Hugging Face API Key
@@ -74,10 +74,6 @@
 8. Copy the generated token
 9. Paste it in the project where the Hugging Face API key is required
 
-### 3. Download Embeddings
-1. Download the embedding files from the following links: 
-- [Embedding Gemma 300M](https://huggingface.co/google/embeddinggemma-300m)
-2. Place the downloaded files in the project directory
 
 ### 4. Download the Classifier Model
 1. Go to the **Releases** page of this repository
