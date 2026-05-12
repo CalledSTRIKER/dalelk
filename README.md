@@ -51,9 +51,40 @@
 ├── retrieve.py                        # finding the most relevant information to answer the user's question.
 └── setup.py                           # packaging and setting up Dalelk as a Python project.
 
+##  Getting Started
+
+### 1. Get Your API Key
+1. Go to [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click **"Get API Key"**
+4. Click **"Create API Key"**
+5. Choose your project
+6. Copy the generated API key
+7. Paste it in the project where the API key is required
 
 
-```
+### 2. Get Your Hugging Face API Key
+1. Go to [Hugging Face](https://huggingface.co/)
+2. Sign in with your account
+3. Click on your profile picture → **"Settings"**
+4. Go to **"Access Tokens"**
+5. Click **"New Token"**
+6. Give it a name and set access to **"Read"**
+7. Click **"Create Token"**
+8. Copy the generated token
+9. Paste it in the project where the Hugging Face API key is required
 
+### 3. Download Embeddings
+1. Download the embedding files from the following links: - [Embedding Gemma 300M](https://huggingface.co/google/embeddinggemma-300m)
+2. Place the downloaded files in the project directory
 
+### 4. Download the Classifier Model
+1. Go to the **Releases** page of this repository
+2. Download the classifier model file
+3. Place it inside the `models/` folder
 
+### 5. Extract the Model
+1. Extract the downloaded file
+2. Make sure the extracted content follows this exact path:
+>  !!! **Windows users:** !!! When extracting, make sure the final path looks like this and does not have an extra nested folder:
+> `models/fine_tuned_marbert/(model files directly here)`
