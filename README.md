@@ -1,8 +1,8 @@
 # Dalelk: The Official AI Academic Assistant for the College of Computer Science and Engineering for Jeddah University
 
 ```
- 
-.   
+ .
+    .
 ├── classifier_training/               # The brain that understands what the user is asking about
 │   ├── certifications/                # Questions certifications folder
 │   ├── courses/                       # Questions courses folder
@@ -38,26 +38,22 @@
 │   ├── unit_test.py
 │   └── unit_test_ratelimit.py
 │
-├── build_embeddings.py
-├── data_loader.py
-├── llm_inference.py
-├── load_embeddings.py
-├── logger.py
-├── main.py
-├── NOTICE.txt
-├── query_classifer.py
-├── query_classifier_training.ipynb
-├── requirements.txt
-├── retrieve.py
-└── setup.py
+├── build_embeddings.py                # bulid embeddings for dataset
+├── data_loader.py                     # loading and preparing all the datasets into the program
+├── llm_inference.py                   # communicating with the LLM to generate the final answer for the user.
+├── load_embeddings.py                 # loading the pre-built embeddings
+├── logger.py                          # Loading everything that happens in the program
+├── main.py                            # the entry point of Dalelk where everything starts and comes together.
+├── NOTICE.txt                         # google policy
+├── query_classifer.py                 # The query classifier that analyze the user's intent
+├── query_classifier_training.ipynb    # Jupyter Notebook where the MARBert model was trained and fine-tuned.
+├── requirements.txt                   # lists all the Python libraries that Dalelk needs to run.
+├── retrieve.py                        # finding the most relevant information to answer the user's question.
+└── setup.py                           # packaging and setting up Dalelk as a Python project.
+
+
+
 ```
 
-##  Getting Started
 
-### 1. Get Your API Key
-1. Go to [Google AI Studio](https://aistudio.google.com/)
-2. Sign in with your Google account
-3. Click **"Create API Key"**
-4. Copy the generated API key
-5. Paste it in the project where the API key is required
 
