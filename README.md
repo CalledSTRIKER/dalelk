@@ -52,3 +52,12 @@
 └── setup.py
 
 
+##  Getting Started
+
+### 1. Get Your API Key
+1. Go to [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click **"Create API Key"**
+4. Copy the generated API key
+5. Paste it in the project where the API key is required
+
