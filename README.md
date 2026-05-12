@@ -60,7 +60,7 @@
 4. Click **"Create API Key"**
 5. Choose your project
 6. Copy the generated API key
-7. Paste it in the project in the .env file in API_KEY1
+7. Paste it in the project in the .env file in the API_KEY1 field.
 
 
 ### 2. Get Your Hugging Face API Key
