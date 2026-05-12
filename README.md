@@ -16,8 +16,8 @@
     │   └── Students Survey.xlsx - Dataset built from students questions 
     ├── frontend   - Frontend website implementation with responsive UI and API integration 
     │   ├── node_modules
-    │   ├── public
-    │   ├── src
+    │   ├── public/
+    │   ├── src/
     │   ├── index.html
     │   ├── package.json
     │   ├── package-lock.json
