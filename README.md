@@ -17,7 +17,7 @@
     ├── frontend   # Frontend website implementation with responsive UI and API integration 
     │   ├── node_modules
     │   ├── public/
-    │   ├── src/
+    │   ├── src/   # Main source code (components, pages, hooks)
     │   ├── index.html
     │   ├── package.json
     │   ├── package-lock.json
