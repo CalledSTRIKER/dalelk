@@ -44,7 +44,7 @@
 ├── data_loader.py                     # loading and preparing all the datasets into the program
 ├── llm_inference.py                   # communicating with the LLM to generate the final answer for the user.
 ├── load_embeddings.py                 # loading the pre-built embeddings
-├── logger.py                          # Loading everything that happens in the program
+├── logger.py                          # logging everything that happens in the program
 ├── main.py                            # the entry point of Dalelk where everything starts and comes together.
 ├── NOTICE.txt                         # google policy
 ├── query_classifer.py                 # The query classifier that analyze the user's intent
