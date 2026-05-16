@@ -1,7 +1,10 @@
 # Dalelk: The Official AI Academic Assistant for the College of Computer Science and Engineering for Jeddah University
 
+<img width="1126" height="1006" alt="updated_pipeline" src="https://github.com/user-attachments/assets/ec89d53a-7ff8-4a8a-b8f9-eb7298272219" />
+
+
+## Project tree
 ```
- 
 ├── classifier_training/               # The brain that understands what the user is asking about
 │   ├── certifications/                # Questions certifications folder
 │   ├── courses/                       # Questions courses folder
