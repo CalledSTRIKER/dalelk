@@ -94,7 +94,6 @@ for i in range(12):
 df_classifer_course_dataset["topic"] = "course"
 df_classifer_course_dataset.drop_duplicates(subset=['query'], inplace=True)
 
-# CONTINUE LATER TO ADD THE OTHER QUESTIONS (hours, level, optional, preq) IN THE SAME WAY.
 # We need to specify only a specific number of rows like 5 or 10 and filter them by major to ensure dataset is balanced and not biased toward a specific major.
 #----------------------------------Certifications section-----------------------------------#
 df_classifer_cert_dataset= pd.DataFrame()
@@ -222,4 +221,4 @@ df_classifer_all_dataset = pd.concat([df_classifer_course_dataset, df_classifer_
 
 df_classifer_all_dataset["query"] = '\u202b' + df_classifer_all_dataset['query'] + '\u202c' # for RTL
 
-df_classifer_all_dataset.to_excel('classifier_dataset2.xlsx', index=False)
+df_classifer_all_dataset.to_excel('classifier_dataset.xlsx', index=False)
