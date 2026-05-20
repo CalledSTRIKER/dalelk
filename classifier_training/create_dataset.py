@@ -94,6 +94,7 @@ for i in range(12):
 df_classifer_course_dataset["topic"] = "course"
 df_classifer_course_dataset.drop_duplicates(subset=['query'], inplace=True)
 
+# CONTINUE LATER TO ADD THE OTHER QUESTIONS (hours, level, optional, preq) IN THE SAME WAY.
 # We need to specify only a specific number of rows like 5 or 10 and filter them by major to ensure dataset is balanced and not biased toward a specific major.
 #----------------------------------Certifications section-----------------------------------#
 df_classifer_cert_dataset= pd.DataFrame()
@@ -168,22 +169,22 @@ df_training = df_general_dataset[df_general_dataset["Topic"].str.strip() == "ا�
 df_clubs = df_general_dataset[df_general_dataset["Topic"].str.strip() == "الأندية الطلابية والأنشطة"]
 df_other = df_general_dataset[df_general_dataset["Topic"].str.strip() == "أخرى"]
 
-for question in df_add_delete["question"].sample(n=73, random_state=49):
+for question in df_add_delete["question"].sample(n=90, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
 
-for question in df_graduation_project["question"].sample(n=73, random_state=49):
+for question in df_graduation_project["question"].sample(n=90, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
 
-for question in df_training["question"].sample(n=73, random_state=49):
+for question in df_training["question"].sample(n=90, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
 
-for question in df_clubs["question"].sample(n=15, random_state=49):
+for question in df_clubs["question"].sample(n=60, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
