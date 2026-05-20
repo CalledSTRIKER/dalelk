@@ -169,12 +169,12 @@ df_training = df_general_dataset[df_general_dataset["Topic"].str.strip() == "ا�
 df_clubs = df_general_dataset[df_general_dataset["Topic"].str.strip() == "الأندية الطلابية والأنشطة"]
 df_other = df_general_dataset[df_general_dataset["Topic"].str.strip() == "أخرى"]
 
-for question in df_add_delete["question"].sample(n=90, random_state=49):
+for question in df_add_delete["question"].sample(n=100, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
 
-for question in df_graduation_project["question"].sample(n=90, random_state=49):
+for question in df_graduation_project["question"].sample(n=95, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
@@ -184,7 +184,7 @@ for question in df_training["question"].sample(n=90, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
 
-for question in df_clubs["question"].sample(n=60, random_state=49):
+for question in df_clubs["question"].sample(n=80, random_state=49):
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset), 'query'] = f"{question}" # question mark must be arabic
     df_classifer_general_dataset.loc[len(df_classifer_general_dataset) - 1, 'size'] = "small" # question mark must be arabic
 
